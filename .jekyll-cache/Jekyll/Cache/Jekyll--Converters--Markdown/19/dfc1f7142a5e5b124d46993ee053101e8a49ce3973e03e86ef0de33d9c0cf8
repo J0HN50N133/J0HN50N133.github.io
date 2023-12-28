@@ -1,4 +1,4 @@
-I".R<blockquote>
+I"R<blockquote>
   <p>最近看到了一个scheme实现的通用记忆化方法，但其代码晦涩难懂，整理了一份python版本，发现远比lisp简单明了，遂写一篇博客保留之。</p>
 </blockquote>
 
@@ -35,7 +35,7 @@
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">## fib(30) time elapsed: 0.2773573199999999
 </span>
 <span class="c1"># 带记忆的版本
@@ -43,7 +43,7 @@
     <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 <span class="c1">## fib_memo(30) time elapsed: 4.91160000000157e-05
 </span></pre></td></tr></tbody></table></code></pre></div></div>
@@ -82,10 +82,10 @@
         <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">inner</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">inner</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="nf">inner</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">inner</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
      <span class="k">return</span> <span class="n">inner</span>
-<span class="n">fib</span> <span class="o">=</span> <span class="n">get_fib</span><span class="p">()</span>
+<span class="n">fib</span> <span class="o">=</span> <span class="nf">get_fib</span><span class="p">()</span>
 
 <span class="c1">## fib(30) time elapsed: 4.8156000000076915e-05
 </span></pre></td></tr></tbody></table></code></pre></div></div>
@@ -118,12 +118,12 @@
 	<span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
 	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
-			<span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+			<span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 		<span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 	<span class="k">return</span> <span class="n">inner</span>
 	
-<span class="n">fib_memo_lambda</span> <span class="o">=</span> <span class="n">memorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> 
-                           <span class="n">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">fib_memo_lambda</span> <span class="o">=</span> <span class="nf">memorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> 
+                           <span class="nf">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="nf">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
 <span class="c1">## fib_memo_lambda(30) time elapsed: 9.787600000010777e-05
 </span>
 <span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -131,7 +131,7 @@
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>这样我们把记忆的过程抽象出来了，memorize就成为了一个通用的记忆方法。但是这个实现我们还是需要修改fib原来的实现，并且fib_memo这种利用lambda表达式的方法令人费解（<em>It is actually a little tricky,</em>具体tricky在哪儿，请看思考题），能不能再优化一下？</p>
@@ -167,17 +167,17 @@
     <span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
     <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
-            <span class="n">memo</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">memo</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">inner</span>
 
-<span class="o">@</span><span class="n">memorize</span>
+<span class="nd">@memorize</span>
 <span class="k">def</span> <span class="nf">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nf">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1">## fib_memo_decorator(30) time elapsed: 4.57430000000425e-05
 </span></pre></td></tr></tbody></table></code></pre></div></div>
@@ -212,12 +212,12 @@
 	<span class="n">memo</span> <span class="o">=</span> <span class="p">{}</span>
 	<span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 		<span class="k">if</span> <span class="n">n</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">memo</span><span class="p">:</span>
-			<span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+			<span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="nf">f</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 		<span class="k">return</span> <span class="n">memo</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 	<span class="k">return</span> <span class="n">inner</span>
 	
-<span class="n">fib_memo_lambda</span> <span class="o">=</span> <span class="n">memorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span>
-                           <span class="n">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">fib_memo_lambda</span> <span class="o">=</span> <span class="nf">memorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span>
+                           <span class="nf">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="nf">fib_memo_lambda</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">2</span><span class="p">))</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>fib_memo_lambda绑定的环境如下图所示:</p>
@@ -249,12 +249,12 @@
 6
 7
 </pre></td><td class="rouge-code"><pre><span class="k">def</span> <span class="nf">f</span><span class="p">(...):</span>
-    <span class="p">...</span>
-<span class="n">f</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="bp">...</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nf">staticmethod</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 
-<span class="o">@</span><span class="nb">staticmethod</span>
+<span class="nd">@staticmethod</span>
 <span class="k">def</span> <span class="nf">f</span><span class="p">(...):</span>
-    <span class="p">...</span>
+    <span class="bp">...</span>
 </pre></td></tr></tbody></table></code></pre></div>  </div>
 
   <p><a href="https://docs.python.org/zh-cn/3/glossary.html#term-decorator">PEP对decorator的解释</a></p>
@@ -266,10 +266,10 @@
 2
 3
 4
-</pre></td><td class="rouge-code"><pre><span class="o">@</span><span class="n">memorize</span>
+</pre></td><td class="rouge-code"><pre><span class="nd">@memorize</span>
 <span class="k">def</span> <span class="nf">fib_memo_decorator</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 
-<span class="n">fib_memo_decorator</span> <span class="o">=</span> <span class="n">memorize</span><span class="p">(</span><span class="n">fib_memo_decorator</span><span class="p">)</span>
+<span class="n">fib_memo_decorator</span> <span class="o">=</span> <span class="nf">memorize</span><span class="p">(</span><span class="n">fib_memo_decorator</span><span class="p">)</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>这个过程中<code class="language-plaintext highlighter-rouge">fib_memo_decorator</code>发生了重新绑定。</p>

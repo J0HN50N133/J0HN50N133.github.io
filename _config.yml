@@ -134,6 +134,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  microblogs:
+    output: true
+    sort_by: date
 
 defaults:
   - scope:

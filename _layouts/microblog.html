@@ -4,7 +4,7 @@ layout: page
 
 
 {% for post in site.microblogs reversed %}
-    <article class="card-wrapper card post-preview">
+    <article class="card-wrapper card microblog">
         {% assign card_body_col = '12' %}
 
         <div class="col-md-{{ card_body_col }}">
@@ -33,3 +33,12 @@ layout: page
       </a>
     </article>
 {% endfor %}
+
+<style>
+.microblog {
+    margin-bottom: 1rem;
+    border-radius: 10px; /* rounded corners */
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* shadow for depth */
+    padding: 10px; /* space around content */
+}
+</style>

@@ -32,7 +32,7 @@ description: >-                        # used by seo meta and the atom feed
 url: 'https://j0hn50n133.github.io'
 
 github:
-  username: j0hn50n133             # change to your github username
+  username: J0HN50N133             # change to your github username
 
 #twitter:
   #username: twitter_username            # change to your twitter username
@@ -50,8 +50,7 @@ social:
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification:               # fill in to your verification string
-
+google_site_verification: ZB3rlR7kPYyo0sZLZd4_IT93Bz9iKjbfvdUuIKFlv8Q              # fill in to your verification string
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
